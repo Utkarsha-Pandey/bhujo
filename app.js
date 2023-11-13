@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require ("path");
 const app= express();
-const port=8000;
+const port=80;
 
 //EXPRESS SPECIFIC STUFF
 app.use('/css',express.static('css'))//for serving static files

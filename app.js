@@ -26,6 +26,22 @@ app.get('/login',(req,res)=>{
     const params = {}
     res.status(200).render('login.pug',params);
 })
+app.post('/login',async(req,res)=>{
+    try{
+        const email = req.body.email;
+        const password = req.body.password;
+        
+        const useremail = await login.findOne({email:email});
+        if (useremail.password === password){
+            res.status(200).render("index");
+        }else{
+            res.send("password are not matching");
+        }
+
+    }catch(error){
+        res.status(400).send("Invalid Email")
+    }
+})
 app.all('*', (req, res) => { 
     res.status(404).render('404.pug'); 
 }); 

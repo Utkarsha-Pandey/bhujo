@@ -26,6 +26,9 @@ app.get('/login',(req,res)=>{
     const params = {}
     res.status(200).render('login.pug',params);
 })
+app.all('*', (req, res) => { 
+    res.status(404).render('404.pug'); 
+}); 
 
 
 // START THE SERVER

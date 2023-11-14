@@ -1,99 +1,232 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Thoth's Stellar Ledger | The Ultimate Expense Managing System</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- CSS FILES -->                
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Thoth's Stellar Ledger | The Ultimate Expense Managing System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <link href="../css/style.css" rel="stylesheet">
-        <link href="../css/bootstrap-icons.css" rel="stylesheet">
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
 
-        //- style 
-        //-     include ../css/style.css
-        //- style 
-        //-     include ../css/bootstrap-icons.css
-        //- style 
-        //-     include ../css/bootstrap.min.css
-        
-    </head>
-    
-    <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 
-        <main>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-            <header class="site-header">
+
+
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <main>
+
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <div class="row justify-content-between">
 
                         <div class="col-lg-12 col-12 d-flex align-items-center">
-                            <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                            <a class="site-header-text d-flex justify-content-space-evenly align-items-center me-0" href="index.html">
                                 <i><img src="../images/pyramids (1).png" width="35px" height="35px"></i>
 
-                                <span>Thoth's Stellar Ledger</span>
+                                <span>
+                                    <div>Thoths Stellar Ledger</div>
+                                </span>
                             </a>
 
-                            <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
-                                <!-- <span class="text-white me-4 d-none d-lg-block">Stay connected</span>  -->
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="custom-btn-new">Home</a>
-                                </li>
 
-                                <li class="social-icon-item">
-                                    <a href="about" class="custom-btn-new">About Us</a>
-                                </li>
+                                <ul class="navbar-nav d-flex justify-content-space-evenly align-items-center ms-lg-auto">
 
-                                <li class="social-icon-item">
-                                    <a href="services" class="custom-btn-new">Our Services</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="custom-btn-new">Home</a>
+                                    </li>
 
-                                <li class="social-icon-item">
-                                    <a href="features" class="custom-btn-new">Features</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="about" class="custom-btn-new">About Us</a>
+                                    </li>
 
-                                <li class="social-icon-item">
-                                    <a href="contact" class="custom-btn-new">Contact Us</a>
-                                </li>
-                            </ul>
+                                    <li class="nav-item">
+                                        <a href="features" class="custom-btn-new">Features</a>
+                                    </li>
 
-                            <div>
-                                <a href="login" class="custom-btn custom-border-btn btn">Login/SignUp
-                                    <i class="bi-arrow-right ms-2"></i>
-                                </a>
+                                    <li class="nav-item">
+                                        <a href="contact" class="custom-btn-new">Contact Us</a>
+                                    </li>
+
+                                </ul>
+
+                                <div>
+                                    <a href="login" class="custom-btn nav-item custom-border-btn btn">Login/SignUp
+                                    </a>
+                                </div>
+
+
                             </div>
 
-                            <!-- <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a> -->
-
                         </div>
+                    </div>
+            </nav>
+        </header>
 
+        <section class="hero-section hero-bg d-flex justify-content-center align-items-center">
+
+
+            <!-- OUR CONTENT GOES HERE -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 text-center mx-auto">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card-content">
+                                        <h1>Welcome to Thoth's Stellar Ledger</h1>
+                                        <p>
+                                        <div class="glow">Unleash the Power of Ancient Wisdom in Modern Finance</div>
+                                        </p>
+
+                                        <section>
+                                            <h2>Embark on a Financial Journey Inspired by Egyptian Mythology</h2>
+                                            <p>
+                                                <a href="#" class="custom-btn">Get Started</a>
+
+                                            </p>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card-content">
+                                        <h1>Discover Thoth's Wisdom in Every Transaction</h1>
+
+                                        <div class="col-lg-8 col-12 mb-4 mb-auto">
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Starry Transactions:</strong> Your expenses are celestial; each one a shining star in Thoth's Stellar Ledger.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Meticulous Record-Keeping:</strong> Experience the meticulousness of Thoth as you record your transactions with divine precision.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Categories of the Cosmos:</strong> Assign expenses to categories adorned with symbols inspired by the wisdom of Egyptian hieroglyphs.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <div class="card-content">
+                                        <h1>Features to Illuminate Your Financial Path</h1>
+
+                                        <div class="col-lg-8 col-12 mb-4 mb-auto">
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Celestial Dashboard:</strong> Your financial insights shine like constellations, guiding you through the cosmos of your expenses.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Expense Entries as Stars:</strong> Every expense is a star, carefully placed in Thoth's Stellar Ledger, ensuring no financial detail is overlooked.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Godly Graphs:</strong> Witness your financial trends through divine charts and graphs inspired by the cosmic order.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="card-content">
+                                        <h1>Why Thoth's Stellar Ledger?</h1>
+
+                                        <div class="col-lg-8 col-12 mb-4 mb-auto">
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Secure as the Pyramids:</strong> Your financial data is as secure as the ancient pyramids, guarded by the wisdom of Thoth.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Bridge the Ages:</strong> Merge ancient wisdom with modern convenience in a financial journey that transcends time.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slider-block">
+                                                <div class="slider-block-image-wrap">
+                                                    <p class="glow">
+                                                         <strong>Embark on Your Journey:</strong> Start managing your expenses in the spirit of Thoth's meticulous record-keeping.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
                     </div>
                 </div>
 
-                
-            </header>
 
 
-            <section class="hero-section hero-bg d-flex justify-content-center align-items-center" id="section_1">
-            </section>
-        </main>
 
-        <!-- JAVASCRIPT FILES -->
-        <script src="../js/jquery.min.js"></script>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script src="../js/countdown.js"></script>
-        <script src="../js/init.js"></script>
 
-    </body>
+        </section>
+    </main>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/slider.js"></script>
+
+
+
+</body>
+
 </html>

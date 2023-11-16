@@ -1,12 +1,27 @@
 const express = require("express");
 const path = require ("path");
+const mongoose = require("mongoose");
 const app= express();
 const port=80;
+const bcrypt = require("bcrypt")
+ 
+const connect = mongoose.connect("mongodb://127.0.0.1:27017/myLoginRegisterDB")
 
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String
+})
+
+const collection = new mongoose.model("User", userSchema)
+
+module.exports = collection;
 //EXPRESS SPECIFIC STUFF
 app.use('/css',express.static('css'))//for serving static files
 app.use('/js',express.static('js'))//for serving js files
 app.use('/images',express.static('images'))//for serving images files
+app.use(express.json());
 app.use(express.urlencoded());
 
 //PUG SPECIFIC STUFF
@@ -31,49 +46,39 @@ app.get('/register',(req,res)=>{
     res.status(200).render('register.pug',params);
 })
 app.post('/login',async(req,res)=>{
-    try{
-        const email = req.body.email;
-        const password = req.body.password;
-        
-        const useremail = await login.findOne({email:email});
-        if (useremail.password === password){
-            res.status(200).render("index");
+        const useremail = await collection.findOne({email:req.body.email});
+        if (!useremail){
+            res.send("user name cannot found");
         }else{
-            res.send("password are not matching");
+            const check = await bcrypt.compare(req.body.password,useremail.password);
+            if(check){
+                res.render("index");
+            }else{
+                res.send("wrong details");
+            }
         }
-
-    }catch(error){
-        res.status(400).send("Invalid Email")
-    }
 })
 app.post('/register',async(req,res)=>{
-    try{
-        const name = req.body.name;
-        const email = req.body.email;
-        const password = req.body.password;
-        
-        const useremail = register.findOne({email:email});
-        if (useremail){
-            res.status("User already registered");
-        }   else{
-            const user = new useremail({
-                name,
-                email,
-                password
-            })
-            user.save(err =>{
-                if(err){
-                    res.send(err)
-                }
-                else{
-                    res.send("Successfully Registered,please login now")
-                }
-                })
+        const data = {
+             name :req.body.name,
+             email : req.body.email,
+             password : req.body.password
         }
 
-    }catch(error){
-        res.status(400).send("Invalid Email")
-    }
+        //checking if the user has already registered
+        const check = await collection.findOne({email: data.email});
+        if(check){
+            res.send("User already exists.")
+        }else{
+            const saltRounds =10;
+            const hashedPassword = await bcrypt.hash(data.password , saltRounds);
+            data.password = hashedPassword;
+            const userdata = await collection.insertMany(data);
+            console.log(userdata);
+            res.send("The User have been registered successfully")
+        }
+       
+
 })
 
 

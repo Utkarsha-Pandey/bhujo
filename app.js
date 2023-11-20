@@ -45,7 +45,7 @@ app.get('/register',(req,res)=>{
     const params = {}
     res.status(200).render('register.pug',params);
 })
-app.post('/login',async(req,res)=>{
+app.post('/login', async(req,res)=>{
         const useremail = await collection.findOne({email:req.body.email});
         if (!useremail){
             res.send("user name cannot found");

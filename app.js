@@ -9,12 +9,35 @@ const connect = mongoose.connect("mongodb://127.0.0.1:27017/myLoginRegisterDB")
 
 
 const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String
+    
+        name: {
+            type: String,
+        },
+        email: {
+            type: String,
+        },
+        password: {
+            type: String,
+        },
+  
+    },
+{
+    timestamps: true,
 })
-
 const collection = new mongoose.model("User", userSchema)
+
+const contactSchema = new mongoose.Schema({
+    name: {
+        type: String,
+    },
+    email: {
+        type: String,
+    },
+    message: {
+        type: String,
+    },
+})
+const contactsch = new mongoose.model("contact", contactSchema)
 
 module.exports = collection;
 //EXPRESS SPECIFIC STUFF

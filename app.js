@@ -7,7 +7,6 @@ const bcrypt = require("bcrypt")
  
 const connect = mongoose.connect("mongodb://127.0.0.1:27017/myLoginRegisterDB")
 
-
 const userSchema = new mongoose.Schema({
     
         name: {
@@ -100,10 +99,7 @@ app.post('/register',async(req,res)=>{
             console.log(userdata);
             res.send("The User have been registered successfully")
         }
-       
-
 })
-
 
 app.all('*', (req, res) => { 
     res.status(404).render('404.pug'); 

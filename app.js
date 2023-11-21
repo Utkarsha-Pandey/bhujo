@@ -101,10 +101,26 @@ app.post('/register',async(req,res)=>{
         }
 })
 
+app.post('/Contact',async(req,res)=>{
+    const data = {
+         name :req.body.name,
+         email : req.body.email,
+         message : req.body.message
+    }
+    //checking if the user has already registered
+    const check = await collection.findOne({email: data.email});
+    if(!check){
+        res.send("User does not exists .")
+    }else{
+        const userdata = await contactsch.insertMany(data);
+        console.log(userdata);
+        res.send("Your Message has been recorded")
+    }
+})
+
 app.all('*', (req, res) => { 
     res.status(404).render('404.pug'); 
 }); 
-
 
 // START THE SERVER
 app.listen(port,()=>{

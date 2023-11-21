@@ -4,7 +4,7 @@ const Footer = () => {
     return(
         <div>
 
-            <h4>Dashboard &copy; Bhujo Expense Manager System</h4>
+            <h4 align="center">Dashboard &copy; Bhujo Expense Manager System</h4>
 
         </div>
     )

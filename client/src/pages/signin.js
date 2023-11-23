@@ -1,6 +1,35 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import axios from "axios";
+import {useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const Signin = () => {
+    const navigate = useNavigate()
+    const [setLoading] = useState(false)
+
+    //form submit
+    const submitHandler = async(values) => {
+        try{
+            setLoading(true)
+            const{data} = await axios.post('./user/signin',values)
+            setLoading(false)
+            message.success('login Successful')
+            localStorage.setItem('user',JSON.stringyfy({...data.user,password :''}))
+            navigate('/dashboard')
+        }catch(error){
+            setLoading(false)
+            message.error('something went wrong')
+
+        }
+    }
+
+     //prevent for login user
+     useEffect(()=>{
+        if(localStorage.getItem('user')){
+            navigate('/dashboard');
+        }
+    },[navigate]);
+
     return (
         <>
 
@@ -15,7 +44,7 @@ const Signin = () => {
                                         href="/"
                                     >
                                         <i>
-                                            <img src="images/pyramids (1).png" width="35px" height="35px" />
+                                            <img src="images/pyramids (1).png" width="35px" height="35px" alt="rerc" />
                                         </i>
                                         <span>Thoth's Stellar Ledger</span>
                                     </a>
@@ -71,7 +100,7 @@ const Signin = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-5 col-12 mx-auto">
-                                <form className="custom-form login-form" role="form" method="post">
+                                <form className="custom-form login-form" method="post" onFinish={submitHandler}>
                                     <h2 className="hero-title text-center mb-4 pb-2">Login Form</h2>
                                     <div className="form-floating mb-4 p-0">
                                         <input

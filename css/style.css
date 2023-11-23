@@ -582,7 +582,7 @@ swiperbox {
   animation: glows 2s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glows {
+-webkit-keyframes glows {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #b8d49a, 0 0 40px #869544, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
   }

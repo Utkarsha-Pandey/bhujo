@@ -43,7 +43,7 @@ const Signup = () => {
                                         href="/"
                                     >
                                         <i>
-                                            <img src="images/pyramids (1).png" width="35px" height="35px" alt="rgvrv"/>
+                                            <img src="images/pyramids(1).png" width="35px" height="35px" alt="rgvrv"/>
                                         </i>
                                         <span>Thoth's Stellar Ledger</span>
                                     </a>

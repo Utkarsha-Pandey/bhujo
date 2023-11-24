@@ -5,38 +5,14 @@ import { message } from "antd";
 
 const Header = () => {
 
-    // useEffect(()=>{
-    //   const[loginUser,setLoginUser] = useState(null)
-    //   useEffect(()=>{
-    //     const user = JSON.parse(localStoraged.getItem('user'))
-    //     if(user){
-    //       setLoginUser(user)
-    //     }
-    //   })  
-    // })
-    // const [loginUser, setLoginUser] = useState(null);
-    // const Navigate = useNavigate();
-    // useEffect(() => {
-    //   const user = JSON.parse(localStorage.getItem("user"));
-    //   if (user) {
-    //     setLoginUser(user);
-
-    //   }
-    // }, []);
-  
-    // const logoutHandler = () => {
-    //   localStorage.removeItem("user");
-    //   message.success("Logout Successfully");
-    //   Navigate("/signin");
-    // }
     useEffect(() => {
-      const[loginUser,setLoginUser] = useState('')
-      useEffect(()=>{
-        const user = JSON.parse(localStoraged.getItem('user'))
+      // const[loginUser,setLoginUser] = useState('')
+      
+        const user = JSON.parse(localStorage.getItem('user'))
         if(user){
           setLoginUser(user)
         }
-      })
+      
     })
     const [loginUser, setLoginUser] = useState("");
     const navigate = useNavigate();
@@ -50,7 +26,7 @@ const Header = () => {
     const logoutHandler = () => {
       localStorage.removeItem("user");
       message.success("Logout Successfully");
-      navigate("/login");
+      navigate("/signin");
     };
   return (
     <>
@@ -77,6 +53,13 @@ const Header = () => {
                   Home
                 </a>
               </li>
+              <li className="nav-item">
+                {" "}
+                <p className="nav-link">{loginUser && loginUser.name}</p>{" "}
+              </li>
+              <li> <button className="btn btn-primary" onClick={logoutHandler}>
+                  Logout
+                </button></li>
             </ul>
           </div>
         </div>

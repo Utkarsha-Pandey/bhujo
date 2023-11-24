@@ -1,6 +1,6 @@
 const userModel = require("../models/userModels");
 
-const loginController = async () => {
+const loginController = async (req, res) => {
   try {
     //destructure email and password
     const { email, password } = req.body;
@@ -21,7 +21,7 @@ const loginController = async () => {
 };
 
 //register Callback
-const registerController = async() => {
+const registerController = async(req , res) => {
     try{
         const newUser = new userModel(req.body);
         await newUser.save();

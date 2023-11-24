@@ -1,6 +1,34 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import { message } from "antd";
 
 const Signup = () => {
+    const navigate = useNavigate()
+    const [setLoading] = useState(false)
+
+     //form submit
+     const submitHandler = async(values) => {
+        try{
+            setLoading(true)
+            await axios.post('./user/signup',values)
+            message.success('Registration Successful')
+            setLoading(false)
+            navigate('/signin')
+        }catch(error){
+            setLoading(false)
+            message.error('invalid username or password')
+
+        }
+    };
+
+    //prevent for login user
+    useEffect(()=>{
+        if(localStorage.getItem('user')){
+            navigate('/');
+        }
+    },[navigate]);
+
     return (
         <>
 
@@ -15,7 +43,7 @@ const Signup = () => {
                                         href="/"
                                     >
                                         <i>
-                                            <img src="images/pyramids (1).png" width="35px" height="35px" />
+                                            <img src="images/pyramids(1).png" width="35px" height="35px" alt="rgvrv"/>
                                         </i>
                                         <span>Thoth's Stellar Ledger</span>
                                     </a>
@@ -129,7 +157,8 @@ const Signup = () => {
                                     action="#"
                                     method="get"
                                     className="custom-form mt-lg-4 mt-2"
-                                    role="form"
+                                    onFinish={submitHandler}
+                                    
                                 >
                                     <h2 className="modal-title" id="subscribeModalLabel">
                                         Stay up to date
@@ -158,7 +187,7 @@ const Signup = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 col-12 mx-auto">
-                                <form className="custom-form" role="form" method="post">
+                                <form className="custom-form" method="post">
                                     <h2 className="hero-title text-center mb-4 pb-2">
                                         Create an account
                                     </h2>
@@ -167,8 +196,8 @@ const Signup = () => {
                                             <div className="form-floating">
                                                 <input
                                                     type="text"
-                                                    name="full-name"
-                                                    id="full-name"
+                                                    name="name"
+                                                    id="name"
                                                     className="form-control"
                                                     placeholder="Full Name"
                                                     required=""

@@ -110,7 +110,7 @@ app.post('/Contact',async(req,res)=>{
     //checking if the user has already registered
     const check = await collection.findOne({email: data.email});
     if(!check){
-        res.send("User does not exists .")
+        res.send("User does not exists.")
     }else{
         const userdata = await contactsch.insertMany(data);
         console.log(userdata);

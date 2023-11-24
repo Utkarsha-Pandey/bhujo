@@ -22,6 +22,11 @@ app.use(cors())
 
 //routes
 //accessing the routes made in userRoutes
+
+app.get("/",  (req, res) =>{
+    res.send("hello");
+})
+
 app.use('/api/v1/users', require('./routes/userRoutes'));
 
 //port

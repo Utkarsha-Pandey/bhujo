@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Form, Input, message } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useState, useEffect } from "react";
 import axios from "axios";
-import Spinner from "../comp/Spinner";
-const Login = () => {
-  const [loading, setLoading] = useState(false);
+import { Link , useNavigate } from "react-router-dom";
+import { Form, Input, message } from "antd";
+import Spinner from "../comp/files/Spinner";
+
+const Signin = () => {
+  const [ loading, setLoading ] = useState(false);
   const navigate = useNavigate();
-  //from submit
   const submitHandler = async (values) => {
     try {
-      setLoading(true);
-      const { data } = await axios.post("/users/signin", values);
-      setLoading(false);
-      message.success("login success");
+       setLoading(true);
+      const { data } = await axios.post("/api/v1/users/signin", values);
+       setLoading(false);
+      message.success("login Successful");
       localStorage.setItem(
         "user",
-        JSON.stringify({ ...data.user, password: "" })
+        JSON.stringyfy({ ...data.user, password: "" })
       );
       navigate("/");
     } catch (error) {
@@ -30,9 +30,9 @@ const Login = () => {
       navigate("/");
     }
   }, [navigate]);
+
   return (
     <>
-
       <main>
         <header className="site-header">
           <nav className="navbar navbar-expand-lg">
@@ -107,30 +107,24 @@ const Login = () => {
               <div className="col-lg-5 col-12 mx-auto">
                 {loading && <Spinner/>}
                 
-                <Form className="custom-form login-form" layout="vertical" onFinish={submitHandler}>
-                  <h2 className="hero-title text-center mb-4 pb-2">Login Form</h2>
+                <Form layout="vertical" onFinish={submitHandler}>
+                  <h1 align>Login Form</h1>
                   <div className="form-floating mb-4 p-0">
-                  <Form.Item className="form-floating mb-4 p-0" name="email" >
-                    <Input type="email" className="form-control" placeholder="Email Address" />
+                  <Form.Item label="Email" name="email">
+                    <Input type="email" />
                   </Form.Item>
                   </div>
 
                   <div className="form-floating p-0">
-                  <Form.Item name="password">
-                    <Input type="password" className="form-control" placeholder="Password" />
+                  <Form.Item label="Password" name="password">
+                    <Input type="password" />
                   </Form.Item>
                   </div>
-                  <div class="row justify-content-center align-items-center">
-                  <div class="col-lg-5 col-12">
+                  <div className="d-flex justify-content-between">
                     <Link to="/signup">
-                      SignUp Here!
+                      Not a user ? Cleck Here to regsiter
                     </Link>
-                    </div>
-                    
-                      <div class="col-lg-5 col-12">
-                        <button className="form-control" type="submit">Login</button>
-                        
-                    </div>
+                    <button className="btn btn-primary" type="submit">Login</button>
                   </div>
                 </Form>
               </div>
@@ -142,4 +136,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;

@@ -3,6 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
 const colors = require('colors')
+const path = require("path");
 const connectDb = require("./config/connectDb");
 
 //config dot env file
@@ -21,7 +22,7 @@ app.use(cors())
 
 //routes
 //accessing the routes made in userRoutes
-app.use('/api/v1/users',require('./routes/userRoutes'));
+app.use('/api/v1/users', require('./routes/userRoutes'));
 
 //port
 const PORT = 8000 || process.env.PORT;

@@ -10,3 +10,4 @@ const connectDb = async () => {
 };
 
 module.exports = connectDb;
+//MONGO_URL=mongodb+srv://bhujo:bokgMHQDcL5WScCr@cluster0.xu2so1z.mongodb.net/expense

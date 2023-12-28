@@ -2,7 +2,6 @@ const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
-const colors = require('colors')
 const connectDb = require("./config/connectDb");
 
 //config dot env file
@@ -15,13 +14,13 @@ connectDb();
 const app = express()
 
 //middlewares
-app.use(morgan('dev'))
-app.use(express.json())
-app.use(cors())
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(cors());
 
 //routes
 //accessing the routes made in userRoutes
-app.use('/api/v1/users',require('./routes/userRoutes'));
+app.use("/api/v1/users",require("./routes/userRoutes"));
 
 //port
 const PORT = 8000 || process.env.PORT;

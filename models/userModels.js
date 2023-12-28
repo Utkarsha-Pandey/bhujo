@@ -23,5 +23,5 @@ timestamps: true,
 })
 
 //export
-const userModel = mongoose.model('userdata',userSchema)
-module.exports = userModel
+const userModels = mongoose.model('userdata',userSchema)
+module.exports = userModels

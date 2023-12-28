@@ -1,14 +1,12 @@
-const React = require("react");
-const Layout = require("./../comp/files/Layout");
+import React from "react";
+import Layout from "./../comp/Layout/Layout";
 
 const DashBoard = () => {
   return (
-    
-      <Layout>
-        <h1>Dashboard</h1>
-      </Layout>
-    
-  )
+    <Layout>
+      <h1>Home Page</h1>
+    </Layout>
+  );
 };
 
 export default DashBoard;

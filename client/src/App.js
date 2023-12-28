@@ -1,7 +1,7 @@
-import {Route, Routes,useNavigate} from 'react-router-dom';
-import DashBoard from './pages/dashboard';
+import {Route, Routes, useNavigate} from 'react-router-dom';
+import DashBoard from './pages/DashBoard';
 import Signup from './pages/signup';
-import Signin from './pages/signin';
+import Signin from './pages/Signin';
 
 
 
@@ -11,7 +11,9 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={
-          <ProtectedRoutes><DashBoard /></ProtectedRoutes>
+          <ProtectedRoutes>
+            <DashBoard />
+          </ProtectedRoutes>
             
          } 
          />
@@ -24,7 +26,7 @@ function App() {
 
 export function ProtectedRoutes(props){
   if(localStorage.getItem('user')){
-    return props.Children
+    return props.Children;
   }else{
     return <Navigate to="/signin"/>
   }

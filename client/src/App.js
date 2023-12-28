@@ -1,12 +1,12 @@
 import {Route, Routes, useNavigate} from 'react-router-dom';
-import DashBoard from './pages/DashBoard';
+import DashBoard from './pages/dashboard';
 import Signup from './pages/signup';
-import Signin from './pages/Signin';
+import Signin from './pages/signin';
 
 
 
 function App() {
-  const Navigate = useNavigate();
+  
   return (
     <>
       <Routes>
@@ -25,6 +25,7 @@ function App() {
 }
 
 export function ProtectedRoutes(props){
+  const Navigate = useNavigate();
   if(localStorage.getItem('user')){
     return props.Children;
   }else{

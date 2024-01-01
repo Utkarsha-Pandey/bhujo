@@ -28,6 +28,7 @@ app.get("/",  (req, res) =>{
 })
 
 app.use('/api/v1/users', require('./routes/userRoutes'));
+app.use('/api/v1/transaction', require('./routes/transactionRoutes'));
 
 //port
 const PORT = 8000 || process.env.PORT;

@@ -13,7 +13,7 @@ const Register = () => {
       await axios.post("/users/signup", values);
       message.success("Registeration Successfull");
       setLoading(false);
-      navigate("/login");
+      navigate("/dashboard");
     } catch (error) {
       setLoading(false);
       message.error("something went wrong");
@@ -23,7 +23,7 @@ const Register = () => {
   //prevent for login user
   useEffect(() => {
     if (localStorage.getItem("user")) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [navigate]);
   return (
@@ -79,7 +79,7 @@ const Register = () => {
                     </ul>
                     <div>
                       <a
-                        href="signin"
+                        href="/signin"
                         className="custom-btn nav-item custom-border-btn btn"
                       >
                         Login/SignUp
@@ -139,23 +139,30 @@ const Register = () => {
               {loading && <Spinner />}
 
                 <Form
-                  className="register-form"
+                  className="custom-form register-form"
                   layout="vertical"
                   onFinish={submitHandler}
                 >
-                  <h2>Register Form</h2>
-                  <Form.Item label="Name" name="name">
-                    <Input type="text" required />
+                  <h2 className="hero-title text-center mb-4 pb-2">Registration Form</h2>
+                  <div className="form-floating mb-4 p-0">
+                  <Form.Item className="form-floating mb-4 p-0" name="name">
+                    <Input type="text" className="form-control" placeholder="Name" required />
                   </Form.Item>
-                  <Form.Item label="Email" name="email">
-                    <Input type="email" required />
+                  </div>
+                  <div className="form-floating p-0">
+                  <Form.Item name="email">
+                    <Input type="email" className="form-control" placeholder="Email" required />
                   </Form.Item>
-                  <Form.Item label="Password" name="password">
-                    <Input type="password" required />
+                  </div>
+                  <div className="form-floating p-0">
+                  <Form.Item name="password">
+                    <Input type="password" className="form-control" placeholder="Password" required />
                   </Form.Item>
-                  <div className="d-flex justify-content-between">
-
-                    <button className="btn btn-primary">SignUp</button>
+                  </div>
+                  <div className="row justify-content-center align-items-center">
+                  <div class="col-lg-5 col-12">
+                    <button className="form-control" type="submit">SignUp</button>
+                  </div>
                   </div>
                 </Form>
 

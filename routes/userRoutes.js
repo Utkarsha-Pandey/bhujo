@@ -3,9 +3,7 @@ const {
   loginController,
   registerController,
   dashboardController,
-  testController,
-  dashboardController,
-  testController,
+  testController
 } = require("../controllers/userControllers");
 const {googleLoginController} = require("../controllers/gControl");
 

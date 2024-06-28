@@ -23,6 +23,7 @@ const Login = () => {
         JSON.stringify({ ...data.user, password: "" })
       );
       navigate("/dashboard");
+      navigate("/dashboard");
     } catch (error) {
       setLoading(false);
       message.error("something went wrong");
@@ -32,6 +33,7 @@ const Login = () => {
   //prevent for login user
   useEffect(() => {
     if (localStorage.getItem("user")) {
+      navigate("/dashboard");
       navigate("/dashboard");
     }
   }, [navigate]);

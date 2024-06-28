@@ -4,6 +4,8 @@ const {
   registerController,
   dashboardController,
   testController,
+  dashboardController,
+  testController,
 } = require("../controllers/userControllers");
 const {googleLoginController} = require("../controllers/gControl");
 
@@ -18,6 +20,12 @@ router.post("/signin", loginController);
 
 //POST || REGISTER USER
 router.post("/signup", registerController);
+
+//POST || REGISTER USER
+router.post("/dashboard", dashboardController);
+
+//POST || Test page
+router.post("/test", testController);
 
 //POST || REGISTER USER
 router.post("/dashboard", dashboardController);

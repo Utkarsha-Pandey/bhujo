@@ -27,11 +27,6 @@ router.post("/dashboard", dashboardController);
 //POST || Test page
 router.post("/test", testController);
 
-//POST || REGISTER USER
-router.post("/dashboard", dashboardController);
-
-//POST || Test page
-router.post("/test", testController);
 
 //POST || GOOGLE LOGIN
 router.post('/google-signin', googleLoginController);

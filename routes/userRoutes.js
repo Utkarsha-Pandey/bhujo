@@ -5,6 +5,8 @@ const {
   dashboardController,
   testController,
 } = require("../controllers/userControllers");
+const {googleLoginController} = require("../controllers/gControl");
+
 
 
 //router object
@@ -22,5 +24,9 @@ router.post("/dashboard", dashboardController);
 
 //POST || Test page
 router.post("/test", testController);
+
+//POST || GOOGLE LOGIN
+router.post('/google-signin', googleLoginController);
+
 
 module.exports = router;

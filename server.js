@@ -5,7 +5,6 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const path = require("path");
 const connectDb = require("./config/connectDb");
-
 //config dot env file
 dotenv.config();
 
@@ -29,7 +28,6 @@ app.get("/",  (req, res) =>{
 
 app.use('/api/v1/users', require('./routes/userRoutes'));
 app.use('/api/v1/transaction', require('./routes/transactionRoutes'));
-
 //port
 const PORT = 8000 || process.env.PORT;
 

@@ -7,7 +7,7 @@ import axios from "axios";
 import { DatePicker } from "antd";
 import Layout from "../comp/Layout/Layout";
 import moment from "moment";
-import { UnorderedListOutlined, AreaChartOutlined } from "@ant-design/icons"
+import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons"
 import Graph from "../comp/Graph";
 
 const { RangePicker } = DatePicker;
@@ -31,6 +31,7 @@ const DashBoard = () => {
   const [SelectedDate, setSelectedDate] = useState([]);
   const [type, setType] = useState('all');
   const [viewData, setviewData] = useState('table');
+  const [editable , setEditable] = useState(null);
 
   //table making
   const columns = [
@@ -57,7 +58,18 @@ const DashBoard = () => {
     },
     {
       title: 'Actions',
-      dataIndex: ''
+      render: (text , record) => (
+        <div>
+          <EditOutlined onClick={() => {
+            setEditable(record)
+            setIsModalOpen(true);
+          }}/>
+          <DeleteOutlined className="mx-2" onClick={() => {
+            handleDelete(record);
+          }}/>
+        </div>
+      )
+      
     },
 
   ]
@@ -90,15 +102,39 @@ const DashBoard = () => {
 
   }, [frequency, SelectedDate, type]);
 
+
+
+  //delete handler
+  const handleDelete = async(record) => {
+    try {
+      await axios.post('/transaction/delete-transaction', {transactionId:record._id}) 
+      message.success("Transaction Deleted Successfully.")
+    } catch (error) {
+      console.log(error)
+      message.error("Unable to Delete the Transaction.")
+    } 
+  }
+
   const handleSubmit = async (values) => {
     try {
       const user = JSON.parse(localStorage.getItem('user'))
-      await axios.post('/transaction/add-transaction', { ...values, userid: user._id })
-      message.success('Transaction added successfully')
+      if(editable){
+        await axios.post('/transaction/edit-transaction', { 
+          payload:{
+            ...values,
+            userId:user._id
+          },
+          transactionId: editable._id,
+        })
+        message.success('Transaction edited successfully')
+      }else{
+        await axios.post('/transaction/add-transaction', { ...values, userid: user._id })
+        message.success('Transaction added successfully')
+      }
       setIsModalOpen(false)
+      setEditable(null);
     } catch (error) {
       message.error('Failed to add transaction.')
-
     }
 
   };
@@ -166,11 +202,11 @@ const DashBoard = () => {
 
 
                 <Modal className="container"
-                  title="Add Transaction"
+                  title={ editable ? 'Edit Transaction' : 'Add Transaction'}
                   open={isModalOpen}
                   onCancel={handleCancel}
                   footer={false}>
-                  <Form className="custom-form login-form" Layout="vertical" onFinish={handleSubmit}>
+                  <Form className="custom-form login-form" Layout="vertical" onFinish={handleSubmit} initialValues={editable}>
                     <div className="form-floating mb-4 p-0">
                       <Form.Item label="Amount" name="amount">
                         <Input type="text" required />

@@ -39,4 +39,34 @@ const addTrnsctn = async(req, res) => {
     }
 }
 
-module.exports = {getAllTrnsctn, addTrnsctn}
+
+const editTrnsctn = async(req, res) => {
+    try {
+        
+        await transactionModel.findOneAndUpdate(
+            {_id:req.body.transactionId},
+            req.body.payload
+        );
+        res.status(200).send('Transaction Edited Successfully.');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+        
+    }
+}
+
+
+const deleteTrnsctn = async(req, res) => {
+    try {
+        await transactionModel.findOneAndDelete(
+            {_id:req.body.transactionId}
+        );
+        res.status(200).send('Transaction Deleted Successfully.');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+        
+    }
+}
+
+module.exports = {getAllTrnsctn, addTrnsctn, editTrnsctn , deleteTrnsctn}

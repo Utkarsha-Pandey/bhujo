@@ -1,5 +1,5 @@
 const express = require("express");
-const { addTrnsctn, getAllTrnsctn } = require("../controllers/transactionControl");
+const { addTrnsctn, getAllTrnsctn, editTrnsctn, deleteTrnsctn } = require("../controllers/transactionControl");
 
 
 
@@ -13,5 +13,9 @@ router.post('/add-transaction' , addTrnsctn)
 
 //get trnsctn
 router.post('/get-transaction' , getAllTrnsctn)
+
+router.post('/edit-transaction' , editTrnsctn)
+
+router.post('/delete-transaction' , deleteTrnsctn)
 
 module.exports = router;

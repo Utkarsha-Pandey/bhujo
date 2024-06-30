@@ -3,7 +3,7 @@ const {
   loginController,
   registerController,
   dashboardController,
-  testController
+  profileController,
 } = require("../controllers/userControllers");
 const {googleLoginController} = require("../controllers/gControl");
 
@@ -23,7 +23,7 @@ router.post("/signup", registerController);
 router.post("/dashboard", dashboardController);
 
 //POST || Test page
-router.post("/test", testController);
+router.get("/profile/:userId", profileController);
 
 
 //POST || GOOGLE LOGIN

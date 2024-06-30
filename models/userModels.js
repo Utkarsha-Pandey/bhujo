@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "name is required"],
+        required: [true, "Name is required"],
     },
     email: {
         type: String,
-        required: [true, "email is required"],
+        required: [true, "Email is required"],
         unique: true,
     },
     password: {
@@ -17,6 +17,9 @@ const userSchema = new mongoose.Schema({
     googleId: {
         type: String,
         unique: true,
+    },
+    profilePic: {
+        type: String, // URL of the profile picture
     },
 }, {
     timestamps: true,

@@ -23,7 +23,7 @@ const Graph = ({ allTrnsctn }) => {
         ).reduce((acc, transaction) => acc + transaction.amount, 0
     );
 
-    const totalIncomeKharchePercent = (totalIncomeKharche/totalKharche) * 100
+    const totalIncomeKharchePercent = (totalIncomeKharche/totalKharche) * 100;
     const totalExpenseKharchePercent = (totalExpenseKharche/totalKharche) * 100;
 
 
@@ -34,7 +34,7 @@ const Graph = ({ allTrnsctn }) => {
     return (
         <>
         
-        <div className="filters mb-4 pb-2">
+        <div className="">
             <div className="col">
                 <div className="text-center">
                     <div className="hero-title card bg-dark mb-4">
@@ -53,6 +53,30 @@ const Graph = ({ allTrnsctn }) => {
                                 strokeColor={'red'} 
                                 className="h2 mx-2 pt-4"
                                 percent={totalExpensePercent.toFixed(0)}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="col">
+                <div className="text-center">
+                    <div className="hero-title card bg-dark mb-4">
+                        <h3>Total Transactions' Amount : {totalKharche}</h3>
+                    </div>
+                    <div className="hero-title text-center mb-4">
+                        <h5>Total Income : {totalIncomeKharche} </h5>
+                        <h5>Total Expense : {totalExpenseKharche} </h5>
+                        <div className="hero-title">
+                            <Progress type="circle" 
+                                strokeColor={'green'} 
+                                className="h2 mx-2 pt-4"
+                                percent={totalIncomeKharchePercent.toFixed(0)}
+                            />
+                            <Progress type="circle" 
+                                strokeColor={'red'} 
+                                className="h2 mx-2 pt-4"
+                                percent={totalExpenseKharchePercent.toFixed(0)}
                             />
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import DashBoard from './pages/dashboard'
 import Signup from './pages/signup';
 import Login from './pages/signin';
-import Test from './pages/test';
+import UserProfile from './pages/profile';
 
 
 
@@ -21,7 +21,7 @@ function App() {
         />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Login />} />
-        <Route path='/test' element={<Test />} />
+        <Route path="/profile/:userId" element={<UserProfile />} />
       </Routes>
     </>
   );

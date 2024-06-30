@@ -23,7 +23,6 @@ const Login = () => {
         JSON.stringify({ ...data.user, password: "" })
       );
       navigate("/dashboard");
-      navigate("/dashboard");
     } catch (error) {
       setLoading(false);
       message.error("something went wrong");
@@ -33,7 +32,6 @@ const Login = () => {
   //prevent for login user
   useEffect(() => {
     if (localStorage.getItem("user")) {
-      navigate("/dashboard");
       navigate("/dashboard");
     }
   }, [navigate]);
@@ -59,7 +57,7 @@ const Login = () => {
       <Header />
 
 
-      <section className="hero-section hero-bg d-flex justify-content-center align-items-center">
+      <section className="hero-section d-flex justify-content-center align-items-center">
         <div className="container">
           <div className="row">
             <div className="col-lg-5 col-12 mx-auto">

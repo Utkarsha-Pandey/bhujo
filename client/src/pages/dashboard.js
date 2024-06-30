@@ -31,7 +31,7 @@ const DashBoard = () => {
   const [SelectedDate, setSelectedDate] = useState([]);
   const [type, setType] = useState('all');
   const [viewData, setviewData] = useState('table');
-  const [editable , setEditable] = useState(null);
+  const [editable, setEditable] = useState(null);
 
   //table making
   const columns = [
@@ -58,18 +58,18 @@ const DashBoard = () => {
     },
     {
       title: 'Actions',
-      render: (text , record) => (
+      render: (text, record) => (
         <div>
           <EditOutlined onClick={() => {
             setEditable(record)
             setIsModalOpen(true);
-          }}/>
+          }} />
           <DeleteOutlined className="mx-2" onClick={() => {
             handleDelete(record);
-          }}/>
+          }} />
         </div>
       )
-      
+
     },
 
   ]
@@ -105,29 +105,29 @@ const DashBoard = () => {
 
 
   //delete handler
-  const handleDelete = async(record) => {
+  const handleDelete = async (record) => {
     try {
-      await axios.post('/transaction/delete-transaction', {transactionId:record._id}) 
+      await axios.post('/transaction/delete-transaction', { transactionId: record._id })
       message.success("Transaction Deleted Successfully.")
     } catch (error) {
       console.log(error)
       message.error("Unable to Delete the Transaction.")
-    } 
+    }
   }
 
   const handleSubmit = async (values) => {
     try {
       const user = JSON.parse(localStorage.getItem('user'))
-      if(editable){
-        await axios.post('/transaction/edit-transaction', { 
-          payload:{
+      if (editable) {
+        await axios.post('/transaction/edit-transaction', {
+          payload: {
             ...values,
-            userId:user._id
+            userId: user._id
           },
           transactionId: editable._id,
         })
         message.success('Transaction edited successfully')
-      }else{
+      } else {
         await axios.post('/transaction/add-transaction', { ...values, userid: user._id })
         message.success('Transaction added successfully')
       }
@@ -148,8 +148,9 @@ const DashBoard = () => {
 
         <section className="hero-section d-flex justify-content-center align-items-center">
           <div className="container">
-            <div className="">
-              <div className="col-lg-5 col-12 mx-auto">
+          <div className="row">
+            <div className="text-center mx-auto">
+              <div className="mx-auto">
                 <h2 className="hero-title text-center mb-4 pb-2">Dashboard</h2>
                 <div className="filters mb-4 pb-2">
                   <h6 className="hero-title">Select Range</h6>
@@ -175,14 +176,14 @@ const DashBoard = () => {
                   </Select>
 
                   <div className="mx-2">
-                    <UnorderedListOutlined 
-                      className={`mx-2 ${viewData === 'table' ? 'active-icon' : 'inactive-icon'  }`} 
-                      onClick={() => setviewData('table') } 
-                      />
-                    <AreaChartOutlined 
-                      className={`mx-2 ${viewData === 'graph' ? 'active-icon' : 'inactive-icon'  }`}
-                      onClick={() => setviewData('graph')} 
-                      />
+                    <UnorderedListOutlined
+                      className={`mx-2 ${viewData === 'table' ? 'active-icon' : 'inactive-icon'}`}
+                      onClick={() => setviewData('table')}
+                    />
+                    <AreaChartOutlined
+                      className={`mx-2 ${viewData === 'graph' ? 'active-icon' : 'inactive-icon'}`}
+                      onClick={() => setviewData('graph')}
+                    />
                   </div>
 
                 </div>
@@ -193,16 +194,16 @@ const DashBoard = () => {
                 </div>
                 <div className="">
                   {viewData === 'table' ? (
-                  <Table className="" columns={columns} dataSource={allTrnsctn} />
+                    <Table className="" columns={columns} dataSource={allTrnsctn} />
                   )
-                  : (<Graph allTrnsctn={allTrnsctn} /> )
+                    : (<Graph allTrnsctn={allTrnsctn} />)
                   }
-                  
+
                 </div>
 
 
                 <Modal className="container"
-                  title={ editable ? 'Edit Transaction' : 'Add Transaction'}
+                  title={editable ? 'Edit Transaction' : 'Add Transaction'}
                   open={isModalOpen}
                   onCancel={handleCancel}
                   footer={false}>
@@ -264,6 +265,7 @@ const DashBoard = () => {
                 </Modal>
               </div>
             </div>
+          </div>
           </div>
         </section>
 

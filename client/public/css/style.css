@@ -228,13 +228,14 @@ strong {
 
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 22;
   top: 0;
   right: 0;
   left: 0;
   padding-top: 30px;
   padding-bottom: 30px;
+  height: 100px; /* Set the height of the header */
 }
 
 .site-header .container {
@@ -264,10 +265,10 @@ strong {
 .hero-section {
   position: relative;
   overflow: hidden;
-  height: 100vh;
   min-height: 675px;
   padding-top: 50px;
   padding-bottom: 50px;
+  margin-top: 100px;
 }
 
 .hero-bg {
@@ -580,6 +581,15 @@ swiperbox {
   -webkit-animation: glows 1s ease-in-out infinite alternate;
   -moz-animation: glows 1s ease-in-out infinite alternate;
   animation: glows 2s ease-in-out infinite alternate;
+}
+
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 10px;
 }
 
 @-webkit-keyframes glows {

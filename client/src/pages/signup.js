@@ -19,6 +19,7 @@ const Signup = () => {
     } catch (error) {
       setLoading(false);
       message.error("Something went wrong");
+      console.error("Signup Error:", error);
     }
   };
 
@@ -42,18 +43,31 @@ const Signup = () => {
               >
                 <h2 className="hero-title text-center mb-4 pb-2">Registration Form</h2>
                 <div className="form-floating mb-4 p-0">
-                  <Form.Item className="form-floating mb-4 p-0" name="name">
-                    <Input type="text" className="form-control" placeholder="Name" required />
+                  <Form.Item
+                    className="form-floating mb-4 p-0"
+                    name="name"
+                    rules={[{ required: true, message: "Name is required" }]}
+                  >
+                    <Input type="text" className="form-control" placeholder="Name" />
                   </Form.Item>
                 </div>
                 <div className="form-floating p-0">
-                  <Form.Item name="email">
-                    <Input type="email" className="form-control" placeholder="Email" required />
+                  <Form.Item
+                    name="email"
+                    rules={[
+                      { required: true, message: "Email is required" },
+                      { type: "email", message: "Please enter a valid email" }
+                    ]}
+                  >
+                    <Input type="email" className="form-control" placeholder="Email" />
                   </Form.Item>
                 </div>
                 <div className="form-floating p-0">
-                  <Form.Item name="password">
-                    <Input type="password" className="form-control" placeholder="Password" required />
+                  <Form.Item
+                    name="password"
+                    rules={[{ required: true, message: "Password is required" }]}
+                  >
+                    <Input type="password" className="form-control" placeholder="Password" />
                   </Form.Item>
                 </div>
                 <div className="row justify-content-center align-items-center">

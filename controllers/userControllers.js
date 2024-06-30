@@ -23,18 +23,30 @@ const loginController = async (req, res) => {
 //register Callback
 const registerController = async (req, res) => {
   try {
-    const newUser = new userModels(req.body);
-    await newUser.save();
-    res.status(201).json({
-      success: true,
-      newUser,
-    });
+    const { name, email, password, googleId } = req.body;
 
+    // Check if the user already exists
+    const userExists = await userModels.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({ success: false, message: "User already exists" });
+    }
+
+    // Prepare the user object, excluding googleId if it's null or undefined
+    const userData = {
+      name,
+      email,
+      password,
+    };
+    if (googleId) {
+      userData.googleId = googleId;
+    }
+
+    const newUser = new userModels(userData);
+    await newUser.save();
+    res.status(201).json({ success: true, newUser });
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      error
-    })
+    console.error('Error registering user:', error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
   }
 };
 

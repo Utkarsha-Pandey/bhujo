@@ -31,6 +31,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/v1/users', require('./routes/userRoutes'));
 
 app.use('/api/v1/transaction', require('./routes/transactionRoutes'));
+
+
 //port
 const PORT = 8000 || process.env.PORT;
 

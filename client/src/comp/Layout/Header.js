@@ -42,28 +42,28 @@ const Header = () => {
               {loginUser && (
                 <>
                   <li className="nav-item">
-                  <span className="nav-link">
-                    <a className="nav-link" href="/dashboard">
-                      Dashboard
-                    </a>
-                  </span>
+                    <span className="nav-link">
+                      <a className="nav-link" href="/dashboard">
+                        Dashboard
+                      </a>
+                    </span>
                   </li>
                   <li className="nav-item">
                     <span className="nav-link">
-                    <a className="nav-link" href={`/profile/${loginUser._id}`}>
+                      <a className="nav-link" href={`/profile/${loginUser._id}`}>
                         {loginUser.name}
                       </a>
                     </span>
                   </li>
+                  <li className="nav-item">
+                    <span className="nav-link">
+                      <button className="btn btn-primary" onClick={logoutHandler}>
+                        Logout
+                      </button>
+                    </span>
+                  </li>
                 </>
               )}
-              <li className="nav-item">
-              <span className="nav-link">
-                <button className="btn btn-primary" onClick={logoutHandler}>
-                  Logout
-                </button>
-              </span>
-              </li>
             </ul>
           </div>
         </div>

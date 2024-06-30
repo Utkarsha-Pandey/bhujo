@@ -9,6 +9,8 @@ const {
 const {googleLoginController} = require("../controllers/gControl");
 const multer = require("multer");
 
+const {exportExpensesPdf} = require("../controllers/pdfExportController");
+
 
 //router object
 const router = express.Router();
@@ -46,5 +48,7 @@ const upload = multer({ storage: storage });
 
 router.post("/profile/upload/:userId", upload.single('profilePic'), uploadProfilePicController);
 
+
+router.get('/export-expenses-pdf/:userId', exportExpensesPdf);
 
 module.exports = router;

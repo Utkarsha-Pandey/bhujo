@@ -17,10 +17,11 @@ const userSchema = new mongoose.Schema({
     googleId: {
         type: String,
         unique: true,
+        sparse: true,
     },
     profilePic: {
         type: String, // URL of the profile picture
-        default: '',
+        default: 'images/user.png',
     },
 }, {
     timestamps: true,

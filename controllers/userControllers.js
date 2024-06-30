@@ -78,5 +78,22 @@ const profileController = async (req, res) => {
 };
 
 
+//uploader controllers
+const uploadProfilePicController = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const profilePic = req.file.path;
+    const updatedUser = await userModels.findByIdAndUpdate(userId, { profilePic }, { new: true });
+    if (!updatedUser) {
+      return res.status(404).send("User not found");
+    }
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.error('Error uploading profile picture:', error);
+    res.status(500).json(error);
+  }
+};
 
-module.exports = { loginController, registerController, dashboardController, profileController};
+
+
+module.exports = { loginController, registerController, dashboardController, profileController , uploadProfilePicController};

@@ -3,6 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
 const connectDb = require("./config/connectDb");
+const path = require('path');
 //config dot env file
 dotenv.config();
 
@@ -23,6 +24,9 @@ app.use(cors());
 app.get("/",  (req, res) =>{
     res.send("hello");
 })
+
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/v1/users', require('./routes/userRoutes'));
 

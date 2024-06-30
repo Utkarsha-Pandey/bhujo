@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     profilePic: {
         type: String, // URL of the profile picture
+        default: '',
     },
 }, {
     timestamps: true,

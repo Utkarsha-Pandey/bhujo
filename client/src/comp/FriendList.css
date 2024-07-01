@@ -1,0 +1,47 @@
+.friend-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .friend-box {
+    width: 200px; /* Adjust width as needed */
+    margin: 10px; /* Adjust margin as needed */
+    text-align: center;
+  }
+  
+  .profile-pic {
+    width: 100px; /* Adjust profile picture size */
+    height: 100px;
+    border-radius: 50%; /* Make profile picture round */
+    object-fit: cover;
+  }
+  
+  .hero-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .profile-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .friend-box {
+      width: 150px; /* Adjust width for smaller screens */
+    }
+  
+    .profile-pic {
+      width: 80px; /* Adjust profile picture size for smaller screens */
+      height: 80px;
+    }
+  
+    .hero-title {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+  }
+  

@@ -4,8 +4,12 @@ const {
   registerController,
   dashboardController,
   profileController,
-  uploadProfilePicController
-} = require("../controllers/userControllers");
+  uploadProfilePicController,
+  addFriendController,
+  checkFriendRequestsController,
+  acceptFriendRequestController,
+  getAllFriendsController,
+} = require('../controllers/userControllers');
 const {googleLoginController} = require("../controllers/gControl");
 const multer = require("multer");
 
@@ -50,5 +54,16 @@ router.post("/profile/upload/:userId", upload.single('profilePic'), uploadProfil
 
 
 router.get('/export-expenses-pdf/:userId', exportExpensesPdf);
+
+
+router.post('/friend-request/:userId', addFriendController);
+
+// Check Friend Requests Route
+router.get('/friend-requests/:userId', checkFriendRequestsController);
+
+// Accept Friend Request Route
+router.post('/accept-friend-request/:userId/:friendId', acceptFriendRequestController);
+
+router.get('/friends/:userId', getAllFriendsController);
 
 module.exports = router;

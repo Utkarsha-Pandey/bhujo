@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         type: String, // URL of the profile picture
         default: 'images/user.png',
     },
+    friendRequests: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userdata'
+    }],
+    friends: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userdata'
+    }],
 }, {
     timestamps: true,
 });

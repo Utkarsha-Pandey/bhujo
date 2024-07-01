@@ -592,6 +592,153 @@ swiperbox {
   margin-top: 10px;
 }
 
+
+.profile-box,
+.export-data-box,
+.friend-requests-box,
+.friends-box {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.profile-box,
+.export-data-box {
+  margin-bottom: 30px;
+}
+
+.profile-box .hero-title,
+.export-data-box .hero-title,
+.friend-requests-box .hero-title,
+.friends-box .hero-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-box img.profile-pic,
+.friend-requests-box img.profile-pic,
+.friends-box img.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-box .profile-info,
+.friend-requests-box .profile-info,
+.friends-box .profile-info {
+  text-align: center;
+}
+
+.profile-box .custom-btn-new,
+.export-data-box .custom-btn-new,
+.friend-requests-box .custom-btn-new,
+.friends-box .custom-btn-new {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile-box .custom-btn-new:hover,
+.export-data-box .custom-btn-new:hover,
+.friend-requests-box .custom-btn-new:hover,
+.friends-box .custom-btn-new:hover {
+  background-color: #0056b3;
+}
+
+.friend-requests-box .profile-content,
+.friends-box .profile-content {
+  padding: 15px;
+}
+
+.friend-requests-box .profile-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.friends-box .profile-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .profile-box,
+  .export-data-box,
+  .friend-requests-box,
+  .friends-box {
+    margin-bottom: 20px;
+  }
+
+  .profile-box img.profile-pic,
+  .friend-requests-box img.profile-pic,
+  .friends-box img.profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-box .custom-btn-new,
+  .export-data-box .custom-btn-new,
+  .friend-requests-box .custom-btn-new,
+  .friends-box .custom-btn-new {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+
+/* Example CSS */
+
+.profile-heading {
+  background-color: #d4d4d4;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.upload-heading {
+  background-color: #d4d4d4;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pdf-export-heading {
+  background-color: #d4d4d4;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+
+.friend-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.friend-box {
+  width: 200px; /* Adjust width as needed */
+  margin: 10px; /* Adjust margin as needed */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .friend-box {
+    width: 150px; /* Adjust width for smaller screens */
+  }
+
+  .profile-pic {
+    width: 80px; /* Adjust profile picture size for smaller screens */
+    height: 80px;
+  }
+}
 @-webkit-keyframes glows {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #b8d49a, 0 0 40px #869544, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
@@ -600,6 +747,5 @@ swiperbox {
     text-shadow: 0 0 15px #fff, 0 0 25px #cdff4d, 0 0 35px rgb(89, 93, 69), 255, 77, 0 0 45px rgb(133, 161, 72), 0 0 55px #ff4da6, 0 0 65px #ff4da6, 0 0 75px #ff4da6;
   }
 }
-
 
 

@@ -1,6 +1,6 @@
 Certainly! Here is the complete code for your `README.md` file in a single block:
 
-```markdown
+
 # Bhujo Expense Tracker
 
 Bhujo Expense Tracker is a web application designed to help users monitor their expenses and provide various analyses to better understand their financial habits. 

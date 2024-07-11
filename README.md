@@ -1,3 +1,6 @@
+Certainly! Here is the complete code for your `README.md` file in a single block:
+
+```markdown
 # Bhujo Expense Tracker
 
 Bhujo Expense Tracker is a web application designed to help users monitor their expenses and provide various analyses to better understand their financial habits. 
@@ -22,55 +25,64 @@ Bhujo Expense Tracker is a web application designed to help users monitor their 
    ```bash
    git clone https://github.com/Utkarsha-Pandey/bhujo.git
    cd bhujo
-Install dependencies:
+   ```
 
-bash
-Copy code
-npm install
-cd client
-npm install
-cd ..
-Set up environment variables:
+2. **Install dependencies:**
+   ```bash
+   npm install
+   cd client
+   npm install
+   cd ..
+   ```
 
-Create a .env file in the root directory and add the following:
+3. **Set up environment variables:**
 
-makefile
-Copy code
-NODE_ENV=development
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-Run the application:
+   Create a `.env` file in the root directory and add the following:
 
-bash
-Copy code
-npm run dev
-The application should now be running on http://localhost:3000.
+   ```
+   NODE_ENV=development
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
 
-Usage
-Register/Login:
+4. **Run the application:**
+   ```bash
+   npm run dev
+   ```
 
-Create a new account or log in using existing credentials.
-Track Expenses/Income:
+   The application should now be running on `http://localhost:3000`.
 
-Add, edit, and delete expense/income entries.
-View Analysis:
+## Usage
 
-Use the dashboard to view categorized expense/income data.
-Utilize dynamic charts and tables for detailed financial analysis.
-Export Data:
+1. **Register/Login:**
+   - Create a new account or log in using existing credentials.
 
-Export your financial records to PDF for offline access and sharing.
-Contributing
+2. **Track Expenses/Income:**
+   - Add, edit, and delete expense/income entries.
+
+3. **View Analysis:**
+   - Use the dashboard to view categorized expense/income data.
+   - Utilize dynamic charts and tables for detailed financial analysis.
+
+4. **Export Data:**
+   - Export your financial records to PDF for offline access and sharing.
+
+## Contributing
+
 Contributions are welcome! Please open an issue or submit a pull request for any bugs or feature requests.
 
-Fork the repository
-Create your feature branch (git checkout -b feature/YourFeature)
-Commit your changes (git commit -m 'Add some feature')
-Push to the branch (git push origin feature/YourFeature)
-Open a pull request
-License
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a pull request
+
+## License
+
 This project is licensed under the MIT License.
 
-Contact
-For any inquiries, please reach out to Us.
+## Contact
+
+For any inquiries, please reach out to [Utkarsha Pandey](https://github.com/Utkarsha-Pandey).
+```
